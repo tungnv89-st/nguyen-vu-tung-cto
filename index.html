@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CV - Nguyễn Vũ Tùng | Flutter Developer / Mobile App Developer / Technical Lead</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1b33;
+      --card2:#0c172e;
+      --text:#e9eefc;
+      --muted:#b8c3e6;
+      --line:rgba(255,255,255,.10);
+      --chip:rgba(255,255,255,.08);
+      --accent:#5eead4;
+      --accent2:#60a5fa;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 500px at 20% 0%, rgba(96,165,250,.20), transparent 60%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(94,234,212,.16), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{
+      max-width:1100px;
+      margin:32px auto;
+      padding:0 18px;
+    }
+    .sheet{
+      border:1px solid var(--line);
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      background: linear-gradient(180deg, rgba(255,255,255,.03), transparent 30%),
+                  linear-gradient(135deg, rgba(96,165,250,.06), rgba(94,234,212,.04)),
+                  var(--card2);
+    }
+    header{
+      padding:26px 26px 18px 26px;
+      display:grid;
+      grid-template-columns: 1.3fr .9fr;
+      gap:18px;
+      border-bottom:1px solid var(--line);
+      background: linear-gradient(135deg, rgba(96,165,250,.10), rgba(94,234,212,.08));
+    }
+    .name{
+      display:flex; flex-direction:column; gap:6px;
+    }
+    .name h1{
+      margin:0;
+      font-size:34px;
+      letter-spacing:.2px;
+      line-height:1.1;
+    }
+    .role{
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+      color:var(--muted);
+      font-weight:600;
+    }
+    .role .dot{opacity:.6}
+    .summary{
+      margin-top:10px;
+      color:var(--text);
+      opacity:.95;
+      max-width:64ch;
+    }
+    .contact{
+      display:grid;
+      gap:10px;
+      align-content:start;
+      justify-items:start;
+    }
+    .contact .item{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background: rgba(0,0,0,.12);
+      width:100%;
+    }
+    .contact .k{
+      min-width:86px;
+      color:var(--muted);
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+    .contact .v{color:var(--text)}
+    .content{
+      display:grid;
+      grid-template-columns: 1fr 0.9fr;
+      gap:18px;
+      padding:22px 26px 26px 26px;
+    }
+    .card{
+      border:1px solid var(--line);
+      border-radius:18px;
+      background: rgba(0,0,0,.12);
+      padding:16px 16px 14px 16px;
+    }
+    h2{
+      margin:0 0 12px 0;
+      font-size:14px;
+      text-transform:uppercase;
+      letter-spacing:1.2px;
+      color:var(--muted);
+    }
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .chip{
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: var(--chip);
+      font-weight:650;
+      font-size:12.5px;
+      color:var(--text);
+      white-space:nowrap;
+    }
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    .list{
+      margin:0;
+      padding-left:18px;
+      color:var(--text);
+    }
+    .list li{margin:6px 0}
+    .xp{
+      display:grid;
+      gap:12px;
+    }
+    .job{
+      padding:14px 14px 12px 14px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background: rgba(255,255,255,.02);
+    }
+    .job .top{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:baseline;
+      justify-content:space-between;
+      margin-bottom:8px;
+    }
+    .job .title{
+      font-weight:800;
+      font-size:15px;
+    }
+    .job .meta{
+      color:var(--muted);
+      font-weight:650;
+      font-size:13px;
+    }
+    .job .org{
+      color:var(--accent2);
+      font-weight:750;
+    }
+    .job ul{margin:8px 0 0 0}
+    .project{
+      display:grid;
+      gap:10px;
+    }
+    .project .p{
+      padding:12px 12px 10px 12px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background: rgba(255,255,255,.02);
+    }
+    .p .pname{font-weight:800}
+    .p .ptech{color:var(--muted); font-weight:650; margin-top:4px}
+    .p .plinks{margin-top:6px; display:flex; gap:10px; flex-wrap:wrap}
+    .badge{
+      display:inline-flex; align-items:center;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(96,165,250,.10);
+      color:var(--text);
+      font-weight:750;
+      font-size:12px;
+    }
+    .footer{
+      padding:12px 26px 18px 26px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .rightCol{
+      display:grid;
+      gap:18px;
+      align-content:start;
+    }
+    .leftCol{
+      display:grid;
+      gap:18px;
+      align-content:start;
+    }
+
+    /* === Avatar slot (local file: avatar.jpg/png/webp) === */
+    .hero{
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+    }
+    .avatarBox{
+      width:92px;
+      flex:0 0 92px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.12);
+      overflow:hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    .avatarBox img{
+      width:100%;
+      height:128px;          /* dọc */
+      object-fit:cover;
+      display:block;
+    }
+    @media (max-width: 920px){
+      header{grid-template-columns:1fr}
+      .content{grid-template-columns:1fr}
+      .avatarBox{width:84px; flex-basis:84px}
+      .avatarBox img{height:118px}
+    }
+    @media print{
+      body{background:white; color:#111}
+      .wrap{margin:0; padding:0}
+      .sheet{box-shadow:none; border-radius:0; border:none; background:white}
+      header{background:white; border-bottom:1px solid #ddd}
+      .card, .job, .p, .contact .item{background:white; border:1px solid #e5e7eb}
+      a{color:#0f766e}
+      .chip{background:#f3f4f6; border:1px solid #e5e7eb; color:#111}
+      .badge{background:#eff6ff; border:1px solid #dbeafe; color:#111}
+      :root{--muted:#444}
+      .avatarBox{box-shadow:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="sheet">
+      <header>
+        <div class="name">
+          <div class="hero">
+            <div class="avatarBox">
+              <!-- Đặt ảnh cùng thư mục với file HTML. Đổi tên file nếu cần. -->
+              <img src="avatar.jpg" alt="Avatar" onerror="this.onerror=null;this.src='avatar.png';" />
+            </div>
+            <div>
+              <h1>NGUYỄN VŨ TÙNG</h1>
+              <div class="role">
+                <span class="badge">CTO</span>
+                <span class="dot">•</span>
+                <span class="badge">Technical Lead</span>
+                <span class="dot">•</span>
+                <span class="badge">PM</span>
+                <span class="dot">•</span>
+                <span class="badge">Flutter Developer</span>
+                <span class="dot">•</span>
+                <span class="badge">Backend Developer</span>
+                <span class="dot">•</span>
+                <span class="badge">Game Developer</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="summary">
+            Kỹ sư phần mềm với kinh nghiệm đảm nhiệm vai trò <b>CTO / Technical Lead / PM</b>,
+            dẫn dắt đội nhóm phát triển sản phẩm từ ý tưởng đến triển khai thực tế.
+            Có nền tảng mạnh về kiến trúc hệ thống (Clean Architecture, MVVM, Microservices),
+            quản lý đội ngũ mobile, backend và game (Unity), xây dựng quy trình CI/CD và tiêu chuẩn kỹ thuật.
+
+            Trực tiếp tham gia phát triển <b>Flutter, Backend (API, Python)</b>, thiết kế hệ thống,
+            tối ưu hiệu năng, mở rộng sản phẩm và tích hợp AI (chatbot, xử lý ảnh/video) cho ứng dụng thực tế.
+          </p>
+        </div>
+
+        <div class="contact">
+          <div class="item">
+            <div class="k">Địa chỉ</div>
+            <div class="v">Thanh Xuân, Hà Nội, Việt Nam</div>
+          </div>
+          <div class="item">
+            <div class="k">Điện thoại</div>
+            <div class="v"><a href="tel:+84356226909">+84 356 226 909</a></div>
+          </div>
+          <div class="item">
+            <div class="k">Email</div>
+            <div class="v"><a href="mailto:tungnv.hit@gmail.com">tungnv.hit@gmail.com</a></div>
+          </div>
+          <div class="item">
+            <div class="k">Vị trí</div>
+            <div class="v">
+              CTO / Technical Lead / Product Manager • Mobile, Backend, Game Development •
+              Định hướng xây dựng sản phẩm công nghệ & hệ thống quy mô
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- LEFT -->
+        <div class="leftCol">
+          <div class="card">
+            <h2>Năng lực</h2>
+            <div class="grid2">
+              <div>
+                <ul class="list">
+                  <li><b>System Design:</b> Clean Architecture, MVVM, Microservices, Modular Design</li>
+                  <li><b>Product Development:</b> Xây dựng sản phẩm từ idea → MVP → scale</li>
+                  <li><b>Backend:</b> RESTful API, Python, Node.js, DB design, auth, caching</li>
+                  <li><b>AI Integration:</b> Chatbot, Image/Video processing, API & offline model</li>
+                </ul>
+              </div>
+              <div>
+                <ul class="list">
+                  <li><b>Mobile:</b> Flutter/Dart, iOS (Swift), Android (Kotlin)</li>
+                  <li><b>Game Dev:</b> Unity (casual, puzzle mobile)</li>
+                  <li><b>DevOps & CI/CD:</b> Build/release pipeline, version control, workflow</li>
+                  <li><b>Leadership:</b> Team management, code review, mentoring, Agile/Scrum</li>
+                </ul>
+              </div>
+            </div>
+
+            <div style="margin-top:12px" class="chips">
+              <span class="chip">System Architecture</span>
+              <span class="chip">Microservices</span>
+              <span class="chip">Flutter</span>
+              <span class="chip">Python</span>
+              <span class="chip">Unity</span>
+              <span class="chip">CI/CD</span>
+              <span class="chip">Product Thinking</span>
+              <span class="chip">Team Leadership</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>Kinh nghiệm làm việc</h2>
+            <div class="xp">
+              
+              <div class="job">
+                <div class="top">
+                  <div>
+                    <div class="title">CTO</div>
+                    <div class="meta"><span class="org">Công ty CP Công nghệ Giáo dục Thiên Hà Xanh</span> • 2024 – Nay</div>
+                  </div>
+                  <div class="meta">Lead team ~15</div>
+                </div>
+                <ul class="list">
+                  <li>Quản lý và xây dựng nền tảng <b>GetX</b> (mô hình “TikTok for Test”): đánh giá năng lực, tự động build CV sát năng lực user.</li>
+                  <li>Xây dựng Game Studio phát triển game casual, puzzle mobile bằng <b>Unity</b>.</li>
+                  <li>Xây dựng hệ thống AI (ảnh, video, chatbot) bằng <b>Python</b>, triển khai model offline & tích hợp API AI.</li>
+                </ul>
+              </div>
+<div class="job">
+                <div class="top">
+                  <div>
+                    <div class="title">CTO &amp; Flutter Developer</div>
+                    <div class="meta"><span class="org">Công ty CP Công Nghệ Giáo Dục EDTEXCO</span> • 2023 – 2024</div>
+                  </div>
+                </div>
+                <ul class="list">
+                  <li>Lãnh đạo team 15 người xây dựng hệ sinh thái <b>X‑BEST</b>.</li>
+                  <li>Trực tiếp phát triển app <b>Flutter</b> cho iOS &amp; Android, tối ưu hiệu năng và trải nghiệm người dùng.</li>
+                  <li>Thiết kế kiến trúc <b>microservices</b> backend, phối hợp chuẩn hóa API cho mobile.</li>
+                  <li>Đề xuất và đào tạo quy trình <b>CI/CD</b> cho mobile (build/release, phân nhánh, review).</li>
+                </ul>
+              </div>
+
+              
+              <div class="job">
+                <div class="top">
+                  <div>
+                    <div class="title">CTO</div>
+                    <div class="meta"><span class="org">Công ty CP Công nghệ Giáo dục Thiên Hà Xanh</span></div>
+                  </div>
+                  <div class="meta">CTO</div>
+                </div>
+                <ul class="list">
+                  <li>Quản lý và xây dựng nền tảng giải trí cùng kiến thức <b>GetX</b> (mô hình “TikTok for Test”): test kết hợp đánh giá năng lực, tự động xây dựng CV sát nhất với user để đánh giá đúng năng lực, hỗ trợ nhà tuyển dụng ra quyết định nhanh &amp; chính xác.</li>
+                  <li>Xây dựng Game Studio chuyên phát triển game casual, puzzle mobile bằng <b>Unity</b> (vai trò quản lý, Game Designer kiêm Senior Unity Developer).</li>
+                  <li>Xây dựng các ứng dụng sử dụng AI (chỉnh sửa ảnh, video, chatbot) với vai trò build hệ thống AI bằng <b>Python</b>, triển khai model offline hoặc tích hợp API AI.</li>
+                </ul>
+              </div>
+
+
+              <div class="job">
+                <div class="top">
+                  <div>
+                    <div class="title">Trưởng phòng kỹ thuật &amp; Mobile Lead</div>
+                    <div class="meta"><span class="org">Công ty CP Thiết bị và Truyền Thông NGS</span> • 2022 – 2023</div>
+                  </div>
+                  <div class="meta">Mobile lead</div>
+                </div>
+                <ul class="list">
+                  <li>Quản lý hệ thống app <b>“Công dân số”</b>.</li>
+                  <li>Thiết kế app mobile, tham gia xây dựng &amp; review code.</li>
+                  <li>Công nghệ: Flutter (thử nghiệm), Java, Swift, VueJS.</li>
+                </ul>
+              </div>
+
+              <div class="job">
+                <div class="top">
+                  <div>
+                    <div class="title">Technical Leader &amp; Mobile Dev</div>
+                    <div class="meta"><span class="org">Tập đoàn G‑Group</span> • 2017 – 2021</div>
+                  </div>
+                  <div class="meta">iOS/Android</div>
+                </div>
+                <ul class="list">
+                  <li>Xây dựng app mobile cho <b>Tima</b>: đại lý cho vay, thẩm định thực địa.</li>
+                  <li>Dẫn dắt team mobile iOS/Android; tối ưu luồng nghiệp vụ &amp; chất lượng phát hành.</li>
+                  <li>Công nghệ: Java, Swift, Objective‑C; xây dựng sản phẩm nội bộ với Flutter.</li>
+                </ul>
+              </div>
+
+              <div class="job">
+                <div class="top">
+                  <div>
+                    <div class="title">Mobile Developer</div>
+                    <div class="meta"><span class="org">Công ty CP Giải Pháp Quản Lý Năng Lượng</span> • 2011 – 2017</div>
+                  </div>
+                  <div class="meta">Android/iOS</div>
+                </div>
+                <ul class="list">
+                  <li>Xây dựng các ứng dụng Android, iOS hỗ trợ ghi chỉ số &amp; cấp điện cho điện lực.</li>
+                  <li>Công nghệ: Java Android, Swift.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- REMOVED_AI_SECTION -->
+        </div>
+
+        <!-- RIGHT -->
+        <div class="rightCol">
+          <div class="card">
+            <h2>Kỹ năng</h2>
+            <div class="chips">
+              <span class="chip">Flutter &amp; Dart</span>
+              <span class="chip">iOS: Swift / Objective‑C</span>
+              <span class="chip">Android: Java / Kotlin</span>
+              <span class="chip">Architecture: MVVM / Clean</span>
+              <span class="chip">DI</span>
+              <span class="chip">RESTful API</span>
+              <span class="chip">WebSocket</span>
+              <span class="chip">Firebase (FCM)</span>
+              <span class="chip">Microservices Backend</span>
+              <span class="chip">CI/CD (Mobile)</span>
+              <span class="chip">Git • Jira</span>
+              <span class="chip">Unit Test</span>
+              <span class="chip">UI/UX Optimization</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>Công cụ</h2>
+            <ul class="list">
+              <li>XCode, Android Studio, VSCode</li>
+              <li>Flipper, Dart DevTools</li>
+              <li>Figma, Postman</li>
+              <li>Git, Jira, CI/CD pipelines</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h2>Học vấn</h2>
+            <div class="p">
+              <div class="pname">Viện Đại Học Mở Hà Nội</div>
+              <div class="ptech">Cử nhân – Công nghệ Thông tin</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>Ngôn ngữ</h2>
+            <div class="chips">
+              <span class="chip">English</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>Dự án tiêu biểu</h2>
+            <div class="project">
+              <div class="p">
+                <div class="pname">X‑BEST – Đánh giá năng lực &amp; Đào tạo</div>
+                <div class="ptech">Flutter</div>
+              </div>
+              <div class="p">
+                <div class="pname">Ứng dụng Công Dân Số</div>
+                <div class="ptech">Flutter, Firebase, Provider</div>
+              </div>
+              <div class="p">
+                <div class="pname">Digioil cho ngân hàng PVCB</div>
+                <div class="ptech">Flutter</div>
+              </div>
+              <div class="p">
+                <div class="pname">Ứng dụng đọc &amp; mua bán sách cho NXB</div>
+                <div class="ptech">Flutter</div>
+                <div class="plinks">
+                  <a href="https://play.google.com/store/apps/details?id=vn.vhmt.nxbxd" target="_blank" rel="noopener">Play Store: NXB Xây Dựng</a>
+                  <a href="https://play.google.com/store/apps/details?id=vn.vhmt.nxbyhoc" target="_blank" rel="noopener">Play Store: NXB Y Học</a>
+                  <a href="https://play.google.com/store/apps/details?id=vn.vhmt.nxbtrithuc" target="_blank" rel="noopener">Play Store: NXB Tri Thức</a>
+                </div>
+              </div>
+              <div class="p">
+                <div class="pname">Ứng dụng đọc báo tổng hợp HitVN</div>
+                <div class="ptech">Swift 3, Kotlin</div>
+              </div>
+              <div class="p">
+                <div class="pname">Drawing grid for the artist</div>
+                <div class="ptech">Swift 3, Java Android</div>
+                <div class="plinks">
+                  <a href="https://play.google.com/store/search?q=drawing+grid+for+the+artist&c=apps&hl=en" target="_blank" rel="noopener">Tìm trên Google Play</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2>Định hướng</h2>
+            <ul class="list">
+              <li>Mong muốn làm việc với vai trò <b>Flutter Developer / Mobile Lead</b> trong môi trường sản phẩm, đặc biệt mảng <b>tài chính/ngân hàng</b>.</li>
+              <li>Tập trung xây dựng ứng dụng có trải nghiệm tối ưu, kiến trúc bền vững, quy trình release tin cậy và tiêu chuẩn bảo mật cao.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div>© Nguyễn Vũ Tùng — CV (HTML) • Có thể in ra PDF bằng chức năng Print của trình duyệt.</div>
+        <div>Last updated: <span id="d"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const d = new Date();
+      const pad = n => String(n).padStart(2,'0');
+      document.getElementById('d').textContent = `${pad(d.getDate())}/${pad(d.getMonth()+1)}/${d.getFullYear()}`;
+    })();
+  </script>
+</body>
+</html>
